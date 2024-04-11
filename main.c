@@ -27,18 +27,18 @@ void sort(int* values, int* indexes, int n)
 	int j;
 	for (i = 0; i < (n - 1); i++)
 		{
-			for (j = i + 1; j < n; j++)
+			for (j = 0; j < n-i-1; j++)
 			{
-				if (values[i] - values[j] < 0)
+				if (values[j] > values[j+1])
 				{
 					int tmp;
-					tmp = values[i];
-					values[i] = values[j];
-					values[j] = tmp;
+					tmp = values[j];
+					values[j] = values[j+1];
+					values[j+1] = tmp;
 
-					tmp = indexes[i];
-					indexes[i] = indexes[j];
-					indexes[j] = tmp;
+					tmp = indexes[j];
+					indexes[j] = indexes[j+1];
+					indexes[j+1] = tmp;
 				}
 			}
 		}
@@ -67,15 +67,14 @@ void main()
 	int n = 10;
 	int i;
 
+	sort(values, indexes, n);
+
 	for (i = 0; i < n; i++)
 	{
 		printf("%d. element: %d", i, values[i]);
 		indexes[i] = i;
 		printf("\n");
 	}
-
-
-	sort(values, indexes, n);
 
 	print(values, indexes, n);
 }

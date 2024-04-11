@@ -17,9 +17,7 @@
 
 #include <stdio.h>
 
-
 #define TRESHOLD 2000000000u
-
 
 // Sortira niz values i niz indexes, koji sadrzi prvobitne indekse vrednosti
 // Niz se uredjuje u neopadajucem poretku, koricenjem "bubble sort" algoritma
